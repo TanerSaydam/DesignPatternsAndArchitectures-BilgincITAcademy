@@ -15,6 +15,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
 - [ ] AspNetCore Framework'ünü anlayalım
 - [ ] Dependency Injection
 - [ ] Middleware
+- [ ] Secret Services (Vault)
 - [ ] Design Patterns nedir?
   - [ ] **Singleton Pattern** (1994 - Book)
   - [ ] **Factory Pattern** (1994 - Book)
@@ -107,7 +108,8 @@ VaultSharp
 ```csharp
 public class VaultService
 {
-    public async Task<Secret<SecretData>> GetSecrets()
+    public static Dictionary<string, object> Datas = new();
+    public async Task GetSecrets()
     {
         var vaultToken = "root";
         var vaultUri = "http://127.0.0.1:8200";
@@ -116,12 +118,18 @@ public class VaultService
         var vaultClient = new VaultClient(vaultClientSettings);
 
         var secrets = await vaultClient.V1.Secrets.KeyValue.V2.ReadSecretAsync(
-            path: "productapp/config",
+            path: "TestWebAPI",
             mountPoint: "secret");
 
-        return secrets;
+        Datas = secrets.Data.Data.ToDictionary();
     }
 }
+```
+
+```csharp
+await new VaultService().GetSecrets();
+var connectionString = VaultService.Datas["ConnectionStrings::SqlServer"];
+Console.WriteLine("Connection String: {0}", connectionString);
 ```
 
 - vault.hcl
