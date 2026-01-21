@@ -9,7 +9,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
 - **Design Pattern**	“Bu problemi nasıl çözerim?”
 - **Architectural Pattern**	“Uygulamanın genel iskeletini ve katmanlı yapısını tanımlayan büyük ölçekli tasarım şablonudur”
 
-## İçindekiler
+## Eğitim İçeriği
 - AspNetCore Framework'ünü anlayalım
 - Dependency Injection
 - Middleware
