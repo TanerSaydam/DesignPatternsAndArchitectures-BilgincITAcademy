@@ -12,9 +12,9 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
 ---
 
 ## Eğitim İçeriği
-- [ ] AspNetCore Framework'ünü anlayalım
-- [ ] Dependency Injection
-- [ ] Middleware
+- [x] AspNetCore Framework'ünü anlayalım
+- [x] Dependency Injection
+- [x] Middleware
 - [ ] Secret Services (Vault)
 - [ ] Design Patterns nedir?
   - [ ] **Singleton Pattern** (1994 - Book)
