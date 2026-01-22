@@ -9,6 +9,9 @@ builder.Services.AddHttpContextAccessor();
 // ServiceCollection => hangi classın hangi yaşam süresince hayatta kalacağına karar verdiğimiz kayıt dosyası
 // Service Provider => Service Collection üzerinde kayıtlı classları kayıtlı yaşam süreleri ile instance türeten yapı
 
+var con = builder.Configuration.GetSection("SqlConnection").Value;
+
+Console.WriteLine(con);
 
 var app = builder.Build(); //uygulama instance
 
@@ -16,14 +19,14 @@ var app = builder.Build(); //uygulama instance
 
 //var test = app.Services.GetRequiredService<Test>();
 
-app.UseAuthentication();
-app.UseAuthorization();
-app.Use((context, next) =>
-{
-    //kendi kontrollerim
-    return next(context);
-});
-//Middleware
+//app.UseAuthentication();
+//app.UseAuthorization();
+//app.Use((context, next) =>
+//{
+//    //kendi kontrollerim
+//    return next(context);
+//});
+////Middleware
 
 app.Run();
 

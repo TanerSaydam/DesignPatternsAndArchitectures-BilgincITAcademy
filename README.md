@@ -15,8 +15,8 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
 - [x] AspNetCore Framework'ünü anlayalım
 - [x] Dependency Injection
 - [x] Middleware
-- [ ] Secret Services (Vault)
-- [ ] Design Patterns nedir?
+- [x] Secret Services (Vault)
+- [x] Design Patterns nedir?
   - [ ] **Singleton Pattern** (1994 - Book)
   - [ ] **Factory Pattern** (1994 - Book)
   - [ ] **Abstract Factory** Pattern (1994 - Book)
