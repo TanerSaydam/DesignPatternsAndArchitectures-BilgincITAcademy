@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Factory Pattern");
+﻿using Microsoft.Extensions.DependencyInjection;
+
+Console.WriteLine("Factory Pattern");
 
 #region Problem
 //EmailNotificationSystem emailNotification = new();
@@ -13,6 +15,18 @@
 //INotification notification = NotificationFactory.Create("sms");
 //notification.Send("Hello world");
 #endregion
+
+ServiceCollection services = new();
+services.AddTransient<INotification, EmailNotificationSystem>();
+services.AddKeyedTransient<INotification, SmsNotificationSystem>("sms");
+services.AddKeyedTransient<INotification, EmailNotificationSystem>("email");
+
+var srv = services.BuildServiceProvider();
+var notification1 = srv.GetRequiredService<INotification>();
+var notification2 = srv.GetRequiredKeyedService<INotification>("sms");
+
+notification1.Send("Hello world");
+notification2.Send("Hello world");
 
 #region Setup
 interface INotification
