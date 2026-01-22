@@ -1,4 +1,6 @@
-﻿Console.WriteLine("Abstract Factory Pattern");
+﻿using Microsoft.Extensions.DependencyInjection;
+
+Console.WriteLine("Abstract Factory Pattern");
 
 #region Problem
 //ProductService productService = new();
@@ -8,6 +10,39 @@
 #region Old Solution
 //ProductAbstractFactory productAbstractFactory = new(DbTypeEnum.MySql);
 //productAbstractFactory._productService.Create("Bilgisayar");
+#endregion
+
+#region DI Solution
+ServiceCollection services = new();
+//services.AddTransient((factory) =>
+//{
+//    IDbContext _dbContext = new MySqlDbContext();
+//    ProductRepository productRepository = new(_dbContext);
+//    UnitOfWork unitOfWork = new(_dbContext);
+//    return new ProductService(productRepository, unitOfWork);
+//});
+services.AddKeyedTransient(DbTypeEnum.MySql, (factory, key) =>
+{
+    IDbContext _dbContext = new MySqlDbContext();
+    ProductRepository productRepository = new(_dbContext);
+    UnitOfWork unitOfWork = new(_dbContext);
+    return new ProductService(productRepository, unitOfWork);
+});
+
+services.AddKeyedTransient(DbTypeEnum.PostgreSql, (factory, key) =>
+{
+    IDbContext _dbContext = new PostgreSqlDbContext();
+    ProductRepository productRepository = new(_dbContext);
+    UnitOfWork unitOfWork = new(_dbContext);
+    return new ProductService(productRepository, unitOfWork);
+});
+
+services.AddKeyedTransient<ProductAbstractFactory>(DbTypeEnum.PostgreSql);
+
+
+var srv = services.BuildServiceProvider();
+var productService = srv.GetRequiredKeyedService<ProductService>(DbTypeEnum.MySql);
+productService.Create("Bilgisayar");
 #endregion
 
 #region Setup
