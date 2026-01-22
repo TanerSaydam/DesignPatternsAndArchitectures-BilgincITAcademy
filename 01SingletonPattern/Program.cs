@@ -110,7 +110,6 @@ static class ExtensionClass
 #region DI Solution
 class DIClass
 {
-
     public DIClass()
     {
         Console.WriteLine("Instance created...");

@@ -1,22 +1,40 @@
+using Microsoft.AspNetCore.Mvc;
 using VaultSharp;
 using VaultSharp.V1.AuthMethods.Token;
 
 var builder = WebApplication.CreateBuilder(args);
+#region Vault Example
 //var con = builder.Configuration.GetSection("SqlConnection").Value;
 
-VaultService vaultService = new();
-await vaultService.GetSecrets();
-var con = VaultService.Datas["SqlConnection"];
-Console.WriteLine(con);
+//VaultService vaultService = new();
+//await vaultService.GetSecrets();
+//var con = VaultService.Datas["SqlConnection"];
+//Console.WriteLine(con);
 
 //secret manager
+#endregion
+
+
+builder.Services.AddControllers();
+
+#region Singleton Example
+builder.Services.AddSingleton<DIClass>();
+#endregion
 
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+#region Singleton Example
+app.MapGet("/singleton", ([FromServices] DIClass diclass) =>
+{
+    return "Hello World!";
+});
+#endregion
+
+app.MapControllers();
 
 app.Run();
 
+#region Vault Example
 //class Test(IConfiguration configuration)
 //{
 
@@ -40,3 +58,5 @@ public class VaultService
         Datas = secrets.Data.Data.ToDictionary();
     }
 }
+
+#endregion
