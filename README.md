@@ -21,7 +21,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [ ] **Factory Pattern** (1994 - Book)
   - [ ] **Abstract Factory** Pattern (1994 - Book)
   - [ ] **Builder Pattern** (1994 - Book)
-  - [ ] **Prototype Pattern** (199(1994 - Book)4 - Book)
+  - [ ] **Prototype Pattern** (1994 - Book)
   - [ ] **Facade Pattern** (1994 - Book)
   - [ ] **Proxy Pattern** (1994 - Book)
   - [ ] **Service Pattern** (Modern)
