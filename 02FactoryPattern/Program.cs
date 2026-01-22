@@ -1,14 +1,18 @@
 ﻿Console.WriteLine("Factory Pattern");
 
+#region Problem
 //EmailNotificationSystem emailNotification = new();
 //emailNotification.Send("Hello world");
 
 //SmsNotificationSystem smsNotification = new();
 //smsNotification.Send("Hello world");
+#endregion
 
+#region Old Solution
 //NotificationFactory notificationFactory = new("email");
-INotification notification = NotificationFactory.Create("sms");
-notification.Send("Hello world");
+//INotification notification = NotificationFactory.Create("sms");
+//notification.Send("Hello world");
+#endregion
 
 #region Setup
 interface INotification
@@ -32,6 +36,7 @@ class SmsNotificationSystem : INotification
 }
 #endregion
 
+#region Old Solution
 static class NotificationFactory
 {
     //private INotification _notification;
@@ -77,3 +82,5 @@ static class NotificationFactory
     }
 
 }
+
+#endregion
