@@ -14,6 +14,11 @@ var builder = WebApplication.CreateBuilder(args);
 //secret manager
 #endregion
 
+#region Factory Pattern Service Registration
+builder.Services.AddTransient<INotification, SmsNotificationSystem>();
+builder.Services.AddKeyedTransient<INotification, SmsNotificationSystem>("sms");
+builder.Services.AddKeyedTransient<INotification, EmailNotificationSystem>("email");
+#endregion
 
 builder.Services.AddControllers();
 
@@ -26,6 +31,14 @@ var app = builder.Build();
 #region Singleton Example
 app.MapGet("/singleton", ([FromServices] DIClass diclass) =>
 {
+    return "Hello World!";
+});
+#endregion
+
+#region Factory Example
+app.MapGet("/factory", ([FromKeyedServices("email")] INotification notification) =>
+{
+    notification.Send("Hello world");
     return "Hello World!";
 });
 #endregion
@@ -60,3 +73,4 @@ public class VaultService
 }
 
 #endregion
+

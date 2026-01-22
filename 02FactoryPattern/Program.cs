@@ -16,6 +16,7 @@ Console.WriteLine("Factory Pattern");
 //notification.Send("Hello world");
 #endregion
 
+#region DI Solution
 ServiceCollection services = new();
 services.AddTransient<INotification, EmailNotificationSystem>();
 services.AddKeyedTransient<INotification, SmsNotificationSystem>("sms");
@@ -27,6 +28,7 @@ var notification2 = srv.GetRequiredKeyedService<INotification>("sms");
 
 notification1.Send("Hello world");
 notification2.Send("Hello world");
+#endregion
 
 #region Setup
 interface INotification

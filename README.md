@@ -18,7 +18,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
 - [x] Secret Services (Vault)
 - [x] Design Patterns nedir?
   - [x] **Singleton Pattern** (1994 - Book)
-  - [ ] **Factory Pattern** (1994 - Book)
+  - [x] **Factory Pattern** (1994 - Book)
   - [ ] **Abstract Factory** Pattern (1994 - Book)
   - [ ] **Builder Pattern** (1994 - Book)
   - [ ] **Prototype Pattern** (1994 - Book)
