@@ -32,7 +32,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **CQRS Pattern** (Modern)
   - [x] **Options Pattern** (Modern)
   - [x] **Result Pattern** (Modern)
-  - [ ] **Service Discovery Pattern** (Modern)
+  - [x] **Service Discovery Pattern** (Modern)
   - [ ] **Outbox Pattern** (Modern)
   - [ ] **Observer Pattern - Queue - Channels Library** (Modern)
   - [ ] **Rate Limiting Pattern** (Modern)
@@ -83,6 +83,11 @@ Yani:
 ### Consul Docker komutu (Service Discovery)
 ```powershell
 docker run -d --name consul -p 8500:8500 hashicorp/consul:latest
+```
+
+- NuGet Package
+```dash
+Steeltoe.Discovery.Consul
 ```
 
 ### Polly kütüphanesi BackoffType
