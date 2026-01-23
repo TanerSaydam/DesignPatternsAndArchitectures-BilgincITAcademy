@@ -22,7 +22,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **Abstract Factory** Pattern (1994 - Book)
   - [x] **Builder Pattern** (1994 - Book)
   - [x] **Prototype Pattern** (1994 - Book)
-  - [ ] **Facade Pattern** (1994 - Book)
+  - [x] **Facade Pattern** (1994 - Book)
   - [ ] **Proxy Pattern** (1994 - Book)
   - [ ] **Service Pattern** (Modern)
   - [ ] **Repository Pattern** (Modern)
