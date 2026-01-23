@@ -31,7 +31,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **Mediator Pattern** (1994 - Book)
   - [x] **CQRS Pattern** (Modern)
   - [x] **Options Pattern** (Modern)
-  - [ ] **Result Pattern** (Modern)
+  - [x] **Result Pattern** (Modern)
   - [ ] **Service Discovery Pattern** (Modern)
   - [ ] **Outbox Pattern** (Modern)
   - [ ] **Observer Pattern - Queue - Channels Library** (Modern)

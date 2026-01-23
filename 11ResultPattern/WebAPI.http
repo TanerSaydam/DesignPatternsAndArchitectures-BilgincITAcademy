@@ -1,0 +1,13 @@
+GET http://localhost:5204/success
+
+###
+GET http://localhost:5204/fail
+
+###
+GET http://localhost:5204/list
+
+###
+GET http://localhost:5204/my-exception
+
+###
+GET http://localhost:5204/app-exception

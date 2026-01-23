@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 
-public class ValidationAttribute : Attribute, IActionFilter, IAuthorizationFilter
+public class ValidationAttribute : Attribute, IActionFilter
 {
     public void OnActionExecuted(ActionExecutedContext context)
     {
