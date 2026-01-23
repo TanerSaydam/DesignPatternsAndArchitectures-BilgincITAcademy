@@ -11,5 +11,6 @@
   <Project Path="06FacadePattern/06FacadePattern.csproj" Id="c69f4764-733c-4b1e-b159-4e4f8f174e44" />
   <Project Path="07ProxyPattern/07ProxyPattern.csproj" Id="6ea85021-c045-4e6c-9191-e1212e30de63" />
   <Project Path="08ServiceRepositoryUnitOfWorkPattern/08ServiceRepositoryUnitOfWorkPattern.csproj" Id="445e67c7-1cb3-4bee-8587-0624990896b7" />
+  <Project Path="09CommandMediatorCQRSPattern/09CommandMediatorCQRSPattern.csproj" Id="b05d1bca-c270-4602-a68c-7a456e1a11c3" />
   <Project Path="_TestWebAPI/_TestWebAPI.csproj" Id="351fa0fb-48d7-4059-8e28-505986e814e5" />
 </Solution>
