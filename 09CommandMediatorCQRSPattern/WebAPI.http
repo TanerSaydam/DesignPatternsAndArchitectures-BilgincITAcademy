@@ -1,0 +1,17 @@
+POST http://localhost:5107/products
+Content-Type: application/json
+
+{
+  "name":"Bilgisayar",
+  "price":500
+}
+
+###
+PUT http://localhost:5107/products
+Content-Type: application/json
+
+{
+  "id":"18ca01b8-0d96-44c3-8dcf-f7bcce1c9583",
+  "name":"Bilgisayar",
+  "price":500
+}

@@ -1,74 +1,130 @@
 using _09CommandMediatorCQRSPattern.Dtos;
 using _09CommandMediatorCQRSPattern.Models;
+using MediatR;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
+builder.Services.AddTransient<MediatorPattern>();
+builder.Services.AddMediatR(cfr =>
+{
+    cfr.RegisterServicesFromAssembly(Assembly.GetExecutingAssembly());
+});
 var app = builder.Build();
 
-app.MapPost("product", async (Mediator mediator, ProductCreateDto request, CancellationToken cancellationToken) =>
+app.MapPost("products", async (MediatorPattern mediator, ProductCreateDto request, CancellationToken cancellationToken) =>
 {
-    await mediator.Handle("product-create", request);
+    await mediator.Handle(request);
 });
 
-app.MapPut("product", async (Mediator mediator, ProductUpdateDto request, CancellationToken cancellationToken) =>
+app.MapPut("products", async (MediatorPattern mediator, ProductUpdateDto request, CancellationToken cancellationToken) =>
 {
-    await mediator.Handle("product-update", request);
+    await mediator.Handle(request);
 });
 
 app.Run();
+//Create-Update-Delete - CUD operations
+//Read 
+//CQRS Pattern - Command - Query Responsibility Segregation
 
-public sealed class Mediator
+#region CQRS
+
+public sealed class MSSqlDb { }
+public sealed class PostgeSqlDb { }
+public interface IMediator
 {
-    public async Task Handle(string type, object request)
+    void Handle();
+}
+public interface ICommand : IMediator
+{
+}
+
+public interface IQuery : IMediator
+{
+}
+
+public sealed record ProductCreateCommand(string Name) : IRequest;
+internal sealed class ProductCreateCommandHandle(MSSqlDb mSSqlDb) : IRequestHandler<ProductCreateCommand>
+{
+    public Task Handle(ProductCreateCommand request, CancellationToken cancellationToken)
     {
-        switch (type)
+        throw new NotImplementedException();
+    }
+}
+
+public sealed class ProductUpdateCommand(MSSqlDb mSSqlDb) : ICommand
+{
+    public void Handle() { }
+}
+
+public sealed class ProductDeleteCommand(MSSqlDb mSSqlDb) : ICommand
+{
+    public void Handle() { }
+}
+
+public sealed class ProductGetQuery(PostgeSqlDb postgeSqlDb) : IQuery
+{
+    public void Handle() { }
+}
+
+public sealed class ProductGetAllQuery(PostgeSqlDb postgeSqlDb) : IQuery
+{
+    public void Handle() { }
+}
+
+#endregion
+
+#region Command and Mediator Pattern
+public sealed class MediatorPattern
+{
+    public async Task Handle(object request)
+    {
+        //var assembly = Assembly.GetExecutingAssembly();
+        //var types = assembly.GetTypes();
+        if (request.GetType() == typeof(ProductCreateDto)) //reflection
         {
-            case "product-create":
-                ProductCreate productCreate = new();
-                await productCreate.Handle((ProductCreateDto)request, default);
-                break;
-            case "product-update":
-                ProductUpdate productUpdate = new();
-                await productUpdate.Handle((ProductUpdateDto)request, default);
-                break;
-            default:
-                break;
+            ProductCreateCommandPattern productCreate = new();
+            await productCreate.Handle((ProductCreateDto)request, default);
+        }
+        else if (request.GetType() == typeof(ProductUpdateDto))
+        {
+            ProductUpdateCommandPattern productUpdate = new();
+            await productUpdate.Handle((ProductUpdateDto)request, default);
         }
     }
 }
 
-public class ProductService
+public class ProductServiceCommandPattern
 {
-    public async Task Create(ProductCreateDto request, CancellationToken cancellationToken = default)
+    public async Task CreateCommand(ProductCreateDto request, CancellationToken cancellationToken = default)
     {
         await Task.CompletedTask;
     }
 
-    public async Task Update(ProductUpdateDto request, CancellationToken cancellationToken = default)
+    public async Task UpdateCommand(ProductUpdateDto request, CancellationToken cancellationToken = default)
     {
         await Task.CompletedTask;
     }
 
-    public async Task Delete(Guid id, CancellationToken cancellationToken = default)
+    public async Task DeleteCommand(Guid id, CancellationToken cancellationToken = default)
     {
         await Task.CompletedTask;
     }
 
-    public async Task<Product> Get(Guid id, CancellationToken cancellationToken = default)
+    public async Task<Product> GetQuery(Guid id, CancellationToken cancellationToken = default)
     {
         await Task.CompletedTask;
         return new Product();
     }
 
-    public async Task<List<Product>> GetAll(CancellationToken cancellationToken = default)
+    public async Task<List<Product>> GetAllQuery(CancellationToken cancellationToken = default)
     {
         await Task.CompletedTask;
         return new List<Product>();
     }
 }
 
-public sealed class ProductCreate
+public sealed class ProductCreateCommandPattern
 {
     public async Task Handle(ProductCreateDto request, CancellationToken cancellationToken = default)
     {
@@ -76,10 +132,11 @@ public sealed class ProductCreate
     }
 }
 
-public sealed class ProductUpdate
+public sealed class ProductUpdateCommandPattern
 {
     public async Task Handle(ProductUpdateDto request, CancellationToken cancellationToken = default)
     {
         await Task.CompletedTask;
     }
 }
+#endregion
