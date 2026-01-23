@@ -6,5 +6,6 @@
   <Project Path="01SingletonPattern/01SingletonPattern.csproj" Id="79b095c0-8368-4f21-bf25-0bc9814687c2" />
   <Project Path="02FactoryPattern/02FactoryPattern.csproj" Id="1346d149-e632-48ca-a801-b1f6d68cd78a" />
   <Project Path="03AbstractFactoryPattern/03AbstractFactoryPattern.csproj" Id="22fd3a57-a3ba-48c7-b70c-d1b7ffa43938" />
+  <Project Path="04BuilderPattern/04BuilderPattern.csproj" Id="503dddf2-299a-4cc1-80c2-39cde54f2464" />
   <Project Path="_TestWebAPI/_TestWebAPI.csproj" Id="351fa0fb-48d7-4059-8e28-505986e814e5" />
 </Solution>
