@@ -27,8 +27,6 @@ class EmailService
     private string _subject = string.Empty;
     private string _body = string.Empty;
     private string[]? _attachments;
-
-
     public EmailService To(string to)
     {
         _to = to;
