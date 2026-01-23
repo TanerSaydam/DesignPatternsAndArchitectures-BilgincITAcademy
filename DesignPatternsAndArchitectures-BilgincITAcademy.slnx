@@ -18,5 +18,7 @@
   <Project Path="09CommandMediatorCQRSPattern/09CommandMediatorCQRSPattern.csproj" Id="b05d1bca-c270-4602-a68c-7a456e1a11c3" />
   <Project Path="10OptionsPattern/10OptionsPattern.csproj" Id="3efe3f1f-1373-4cc2-8964-4f751ad52325" />
   <Project Path="11ResultPattern/11ResultPattern.csproj" Id="7f6659d2-2680-4954-b28a-0c974f887bf6" />
+  <Project Path="12OutboxPattern/12OutboxPattern.csproj" Id="a5a7993e-fa02-4b12-9592-9c63d80fbbd2" />
+  <Project Path="14RateLimitingPattern/14RateLimitingPattern.csproj" Id="3c18eaa3-b3bf-4d56-9025-5fd871821170" />
   <Project Path="_TestWebAPI/_TestWebAPI.csproj" Id="351fa0fb-48d7-4059-8e28-505986e814e5" />
 </Solution>

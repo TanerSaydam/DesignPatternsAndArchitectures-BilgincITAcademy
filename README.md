@@ -33,9 +33,9 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **Options Pattern** (Modern)
   - [x] **Result Pattern** (Modern)
   - [x] **Service Discovery Pattern** (Modern)
-  - [ ] **Outbox Pattern** (Modern)
+  - [x] **Outbox Pattern** (Modern)
   - [ ] **Observer Pattern - Queue - Channels Library** (Modern)
-  - [ ] **Rate Limiting Pattern** (Modern)
+  - [x] **Rate Limiting Pattern** (Modern)
   - [ ] **Circuit Breaker Pattern / Retry Pattern** (Polly Library) (Modern)
 - [ ] Architectural Patterns nedir?
   - [ ] N Tier Architecture
