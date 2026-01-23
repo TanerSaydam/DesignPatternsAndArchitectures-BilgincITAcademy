@@ -1,0 +1,9 @@
+POST http://localhost:5207/product-create
+Content-Type: application/json
+
+{
+  "name":"Bilgisayar",
+  "price":5000
+}
+
+###

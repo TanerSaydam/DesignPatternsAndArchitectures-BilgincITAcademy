@@ -16,6 +16,7 @@ public class ValuesController(
     }
 
     [HttpGet("factory")]
+    [Validation]
     public IActionResult NotificationFactory()
     {
         notification.Send("Hello world");
