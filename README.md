@@ -45,7 +45,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [ ] Clean Architecture
     - [ ] DDD Approach
 
---- 10:21 görüşelim
+---
 
 ## Framework Nedir?
 
@@ -180,6 +180,8 @@ disable_mlock = true
 ```powershell
 docker run -d --name vault -p 8200:8200 --cap-add=IPC_LOCK -v "${PWD}\vault-data:/vault/data" -v "${PWD}\vault.hcl:/vault/config/vault.hcl" hashicorp/vault server -config=vault.hcl
 ```
+
+---
 
 ### Clean Architecture
 
