@@ -3,7 +3,10 @@
     <Project Path="12ServiceDiscoveryPattern/CategoryWebAPI/CategoryWebAPI.csproj" />
     <Project Path="12ServiceDiscoveryPattern/ProductWebAPI/ProductWebAPI.csproj" />
   </Folder>
-  <Folder Name="/CleanArchitecture/" />
+  <Folder Name="/16CleanArchitecture/">
+    <Project Path="16CleanArchitecture/CleanArchitecture.Application/CleanArchitecture.Application.csproj" Id="73baa045-9cd4-4a8d-9301-2a95d701affa" />
+    <Project Path="16CleanArchitecture/CleanArchitecture.Domain/CleanArchitecture.Domain.csproj" />
+  </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>
@@ -22,6 +25,6 @@
   <Project Path="12OutboxPattern/12OutboxPattern.csproj" Id="a5a7993e-fa02-4b12-9592-9c63d80fbbd2" />
   <Project Path="13ObserverPatternChannelsLibrary/13ObserverPatternChannelsLibrary.csproj" Id="515f62db-78f6-40aa-b238-4b2ed20e80ba" />
   <Project Path="14RateLimitingPattern/14RateLimitingPattern.csproj" Id="3c18eaa3-b3bf-4d56-9025-5fd871821170" />
-  <Project Path="15. CircuitBreakerPattern/15. CircuitBreakerPattern.csproj" Id="da719346-8306-47f9-8464-8078886e89f4" />
+  <Project Path="15CircuitBreakerPattern/15CircuitBreakerPattern.csproj" />
   <Project Path="_TestWebAPI/_TestWebAPI.csproj" Id="351fa0fb-48d7-4059-8e28-505986e814e5" />
 </Solution>

@@ -5,13 +5,16 @@ Design pattern, yazılımda sık karşılaşılan problemlere karşı defalarca 
 Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan hazır mimari çözüm fikirleridir.
 
 ## Patterns
-- **Design Principle**	“Nasıl düşünmeliyim?”
-- **Design Pattern**	“Bu problemi nasıl çözerim?”
-- **Architectural Pattern**	“Uygulamanın genel iskeletini ve katmanlı yapısını tanımlayan büyük ölçekli tasarım şablonudur”
+
+- **Design Principle**    “Nasıl düşünmeliyim?”
+
+- **Design Pattern**    “Bu problemi nasıl çözerim?”
+- **Architectural Pattern**    “Uygulamanın genel iskeletini ve katmanlı yapısını tanımlayan büyük ölçekli tasarım şablonudur”
 
 ---
 
 ## Eğitim İçeriği
+
 - [x] AspNetCore Framework'ünü anlayalım
 - [x] Dependency Injection
 - [x] Middleware
@@ -45,9 +48,11 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
 --- 10:21 görüşelim
 
 ## Framework Nedir?
+
 Framework, uygulamanın iskeletini ve akışını belirleyen,senin yazdığın kodu kendi kuralları içinde çağıran hazır bir yapıdır.
 
 ## Library Nedir?
+
 Library, ihtiyacın olduğunda senin çağırdığın, belirli bir işi yapan hazır kod kütüphanesidir.
 
 - .NET bir framework / platformdur. C# ise bu platform üzerinde kullanılan programlama dilidir.
@@ -55,8 +60,10 @@ Library, ihtiyacın olduğunda senin çağırdığın, belirli bir işi yapan ha
 - Console ise bir application, .NET’in sağladığı bir application modelidir
 
 ## IoC (Inversion of Control) Nedir?
+
 Inversion of Control, programın kontrol akışının senin kodundan çıkıp bir framework / container tarafından yönetilmesi prensibidir.
 Yani:
+
 - “Ben kimi, ne zaman, nasıl çağıracağımı kontrol etmiyorum. Framework kontrol ediyor.”
 - IoC bir prensiptir. ASP.NET Core bunu uygular. Program.cs ise bunun konfigürasyon yeridir.
 
@@ -67,49 +74,57 @@ Yani:
 - **Architectural Pattern**: “Uygulamanın genel iskeletini ve katmanlı yapısını tanımlayan büyük ölçekli tasarım şablonudur”
 
 ### Design Principles
+
 - **SOLID**
 - **DRY**
 - **KISS**
 - **YAGNI**
-- **Separation of Concerns** 
-  - "Her şey kendi işini yapsın" 
+- **Separation of Concerns**
+  - "Her şey kendi işini yapsın"
   - "Modern mimari dünyası “CQRS düşünce şeklini” öneriyor"
-- **High Cohesion / Low Coupling** 
-  - High Cohesion = Bir modülün / class’ın tek bir amaca odaklı olması 
+- **High Cohesion / Low Coupling**
+  - High Cohesion = Bir modülün / class’ın tek bir amaca odaklı olması
   - Low Coupling = Modüllerin birbirine en az bağımlı olması
 
 ---
 
 ### Consul Docker komutu (Service Discovery)
+
 ```powershell
 docker run -d --name consul -p 8500:8500 hashicorp/consul:latest
 ```
 
 - NuGet Package
+
 ```dash
 Steeltoe.Discovery.Consul
 ```
 
 ### Polly kütüphanesi BackoffType
+
 ```csharp
 //🧩 DelayBackoffType Enum Türleri
-//Constant	Her denemede sabit süre bekler.	Delay = 5s → 5s, 5s, 5s
-//Linear	Her denemede gecikme lineer (doğrusal) artar.	Delay = 5s → 5s, 10s, 15s
-//Exponential	Her denemede gecikme katlanarak (üstel) artar.	Delay = 5s → 5s, 10s, 20s, 40s
+//Constant    Her denemede sabit süre bekler.    Delay = 5s → 5s, 5s, 5s//Constant    Her denemede sabit süre bekler.    Delay = 5s → 5s, 5s, 5s
+//Linear    Her denemede gecikme lineer (doğrusal) artar.    Delay = 5s → 5s, 10s, 15s//Linear    Her denemede gecikme lineer (doğrusal) artar.    Delay = 5s → 5s, 10s, 15s
+//Exponential    Her denemede gecikme katlanarak (üstel) artar.    Delay = 5s → 5s, 10s, 20s, 40s//Exponential    Her denemede gecikme katlanarak (üstel) artar.    Delay = 5s → 5s, 10s, 20s, 40s
 ```
 
-### HasiCorp Vault 
+### HasiCorp Vault
+
 - Development Docker
+
 ```powershell
 docker run -d --name vault -p 8200:8200 --cap-add=IPC_LOCK -e VAULT_DEV_ROOT_TOKEN_ID=root -e VAULT_ADDR=http://0.0.0.0:8200 hashicorp/vault:latest server -dev
 ```
 
 - NuGet Package
+
 ```dash
 VaultSharp
 ```
 
 - C# kodları
+
 ```csharp
 public class VaultService
 {
@@ -138,6 +153,7 @@ Console.WriteLine("Connection String: {0}", connectionString);
 ```
 
 - vault.hcl
+
 ```hcl
 ui = true
 
@@ -160,6 +176,26 @@ disable_mlock = true
 ```
 
 - Production Docker (Bu kod vault.hcl in bulunduğu klasörde çalıştırılmalı)
+
 ```powershell
 docker run -d --name vault -p 8200:8200 --cap-add=IPC_LOCK -v "${PWD}\vault-data:/vault/data" -v "${PWD}\vault.hcl:/vault/config/vault.hcl" hashicorp/vault server -config=vault.hcl
 ```
+
+### Clean Architecture
+
+**Katmanlar**
+
+- Domain - <small>Model yapılarından sorumlu</small>
+- Application - <small>Asıl işlemleri yönetir (Business katmanı)</small>
+
+**Kullandığımız Kütüphaneler**
+
+- Mapster
+- MediatR
+- EntityFrameworkCore
+
+**Kullandığımız Patternlar**
+
+- Repository Pattern (Domain de duruyor)
+- Unit Of Work Pattern (Domain de duruyor)
+- Result Pattern (Domain de duruyor)
