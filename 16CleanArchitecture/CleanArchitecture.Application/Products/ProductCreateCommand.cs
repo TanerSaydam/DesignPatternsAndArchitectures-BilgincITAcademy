@@ -1,5 +1,6 @@
 ﻿using CleanArchitecture.Domain.Abstractions;
 using CleanArchitecture.Domain.Products;
+using FluentValidation;
 using Mapster;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +9,14 @@ namespace CleanArchitecture.Application.Products;
 
 public sealed record ProductCreateCommand(
     string Name) : IRequest<Result<Guid>>;
+
+public sealed class ProductCreateCommandValidator : AbstractValidator<ProductCreateCommand>
+{
+    public ProductCreateCommandValidator()
+    {
+        RuleFor(p => p.Name).MinimumLength(2).WithMessage("Geçerli bir ürün adı girin");
+    }
+}
 
 internal sealed class ProductCreateCommandHandler(
     IProductRepository productRepository,

@@ -2,6 +2,4 @@
 
 namespace CleanArchitecture.Domain.Products;
 
-public interface IProductRepository : IRepository<Product>
-{
-}
+public interface IProductRepository : IRepository<Product>;

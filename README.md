@@ -41,8 +41,8 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **Circuit Breaker Pattern / Retry Pattern / Timeout Pattern / Resilience Pattern** (Polly Library) (Modern)
 - [x] Architectural Patterns nedir?
   - [x] N Tier Architecture
-  - [ ] Clean Architecture
-    - [ ] DDD Approach
+  - [x] Clean Architecture
+    - [x] DDD Approach
 
 ---
 
@@ -199,6 +199,7 @@ docker run -d --name vault -p 8200:8200 --cap-add=IPC_LOCK -v "${PWD}\vault-data
 - Carter
 - OpenApi
 - Scalar
+- Scrutor
 
 **Kullandığımız Patternlar**
 
@@ -206,13 +207,15 @@ docker run -d --name vault -p 8200:8200 --cap-add=IPC_LOCK -v "${PWD}\vault-data
 - Unit Of Work Pattern (Domain de interface'i, Infrastructure da class'ı duruyor)
 - Result Pattern (Domain de duruyor, Application kullanıyor)
 - Options Pattern (Infrastructure da duruyor)
+- CQRS Pattern (Application da duruyor)
+- Rate Limitter Pattern (WebAPI da uygulandı)
 
 **Kullandığımız Design Principles**
 
 - Dependency Injection
 - Single Responsibility
 - Open/Closed Prensibi
-- Liscov-Subtitue?
+- Liskov-Subtitution
 - Interface Segregation
 - Dependency Inversion
 - DRY
