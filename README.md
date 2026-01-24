@@ -36,13 +36,13 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **Outbox Pattern** (Modern)
   - [x] **Observer Pattern - Queue - Channels Library** (Modern)
   - [x] **Rate Limiting Pattern** (Modern)
-  - [ ] **Circuit Breaker Pattern / Retry Pattern** (Polly Library) (Modern)
+  - [x] **Circuit Breaker Pattern / Retry Pattern / Timeout Pattern / Resilience Pattern** (Polly Library) (Modern)
 - [ ] Architectural Patterns nedir?
   - [ ] N Tier Architecture
   - [ ] Clean Architecture
     - [ ] DDD Approach
 
----
+--- 10:21 görüşelim
 
 ## Framework Nedir?
 Framework, uygulamanın iskeletini ve akışını belirleyen,senin yazdığın kodu kendi kuralları içinde çağıran hazır bir yapıdır.
