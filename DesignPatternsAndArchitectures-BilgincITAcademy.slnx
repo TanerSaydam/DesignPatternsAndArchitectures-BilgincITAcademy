@@ -6,6 +6,10 @@
   <Folder Name="/16CleanArchitecture/">
     <Project Path="16CleanArchitecture/CleanArchitecture.Application/CleanArchitecture.Application.csproj" Id="73baa045-9cd4-4a8d-9301-2a95d701affa" />
     <Project Path="16CleanArchitecture/CleanArchitecture.Domain/CleanArchitecture.Domain.csproj" />
+    <Project Path="16CleanArchitecture/CleanArchitecture.Infrastructure/CleanArchitecture.Infrastructure.csproj" Id="4529e88b-9ba1-4115-8ce8-f5a498b7c357" />
+    <Project Path="16CleanArchitecture/CleanArchitecture.WebAPI/CleanArchitecture.WebAPI.csproj" />
+    <Project Path="DesignPatternsAndArchitectures-BilgincITAcademy.AppHost/CleanArchitecture.AppHost.csproj" Id="43d2e613-0632-4bbe-b80c-1561ad7d3e5b" />
+    <Project Path="DesignPatternsAndArchitectures-BilgincITAcademy.ServiceDefaults/CleanArchitecture.ServiceDefaults.csproj" />
   </Folder>
   <Folder Name="/Solution Items/">
     <File Path="README.md" />

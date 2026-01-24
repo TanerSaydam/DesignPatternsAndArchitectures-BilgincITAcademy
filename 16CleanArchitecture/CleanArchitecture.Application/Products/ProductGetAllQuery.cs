@@ -1,10 +1,11 @@
-﻿using CleanArchitecture.Domain.Products;
+﻿using CleanArchitecture.Domain.Abstractions;
+using CleanArchitecture.Domain.Products;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchitecture.Application.Products;
 
-public sealed record ProductGetAllQuery() : IRequest<List<ProductGetAllQueryResponse>>;
+public sealed record ProductGetAllQuery() : IRequest<Result<List<ProductGetAllQueryResponse>>>;
 
 public sealed record ProductGetAllQueryResponse
 {
@@ -13,9 +14,9 @@ public sealed record ProductGetAllQueryResponse
 }
 
 internal sealed class ProductGetAllQueryHandler(
-    IProductRepository productRepository) : IRequestHandler<ProductGetAllQuery, List<ProductGetAllQueryResponse>>
+    IProductRepository productRepository) : IRequestHandler<ProductGetAllQuery, Result<List<ProductGetAllQueryResponse>>>
 {
-    public async Task<List<ProductGetAllQueryResponse>> Handle(ProductGetAllQuery request, CancellationToken cancellationToken)
+    public async Task<Result<List<ProductGetAllQueryResponse>>> Handle(ProductGetAllQuery request, CancellationToken cancellationToken)
     {
         var res = await productRepository
             .GetAll()

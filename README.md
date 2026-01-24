@@ -7,7 +7,6 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
 ## Patterns
 
 - **Design Principle**    “Nasıl düşünmeliyim?”
-
 - **Design Pattern**    “Bu problemi nasıl çözerim?”
 - **Architectural Pattern**    “Uygulamanın genel iskeletini ve katmanlı yapısını tanımlayan büyük ölçekli tasarım şablonudur”
 
@@ -189,15 +188,33 @@ docker run -d --name vault -p 8200:8200 --cap-add=IPC_LOCK -v "${PWD}\vault-data
 
 - Domain - <small>Model yapılarından sorumlu</small>
 - Application - <small>Asıl işlemleri yönetir (Business katmanı)</small>
+- UI - WebAPI - <small>DI bağlantılarını yapar, Endpointleri dışarı aşar</small>
+- Infrastructure - <small>Dış kaynakları bağlamakla sorumludur. Örneğin Database</small>
 
 **Kullandığımız Kütüphaneler**
 
 - Mapster
 - MediatR
-- EntityFrameworkCore
+- EntityFrameworkCore (MSSQL, Code First içinde Tools ve Design)
+- Carter
+- OpenApi
+- Scalar
 
 **Kullandığımız Patternlar**
 
-- Repository Pattern (Domain de duruyor)
-- Unit Of Work Pattern (Domain de duruyor)
-- Result Pattern (Domain de duruyor)
+- Repository Pattern (Domain de interface'i, Infrastructure da class'ı duruyor)
+- Unit Of Work Pattern (Domain de interface'i, Infrastructure da class'ı duruyor)
+- Result Pattern (Domain de duruyor, Application kullanıyor)
+- Options Pattern (Infrastructure da duruyor)
+
+**Kullandığımız Design Principles**
+
+- Dependency Injection
+- Single Responsibility
+- Open/Closed Prensibi
+- Liscov-Subtitue?
+- Interface Segregation
+- Dependency Inversion
+- DRY
+- KISS,
+- YAGNI
