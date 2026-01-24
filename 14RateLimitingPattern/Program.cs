@@ -30,5 +30,4 @@ app.UseRateLimiter();
 
 app.MapGet("/", () => "Hello World!").RequireRateLimiting("fixed");
 
-
 app.Run();

@@ -1,0 +1,8 @@
+GET http://localhost:5033/subscribe
+
+###
+GET http://localhost:5033/change-weater?weater=35
+
+
+###
+GET http://localhost:5033/send-queue

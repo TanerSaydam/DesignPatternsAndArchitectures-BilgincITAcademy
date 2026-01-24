@@ -34,7 +34,7 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **Result Pattern** (Modern)
   - [x] **Service Discovery Pattern** (Modern)
   - [x] **Outbox Pattern** (Modern)
-  - [ ] **Observer Pattern - Queue - Channels Library** (Modern)
+  - [x] **Observer Pattern - Queue - Channels Library** (Modern)
   - [x] **Rate Limiting Pattern** (Modern)
   - [ ] **Circuit Breaker Pattern / Retry Pattern** (Polly Library) (Modern)
 - [ ] Architectural Patterns nedir?
