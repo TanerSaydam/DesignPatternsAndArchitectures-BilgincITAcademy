@@ -1,8 +1,9 @@
 <Solution>
   <Folder Name="/12ServiceDiscoveryPattern/">
-    <Project Path="CategoryWebAPI/CategoryWebAPI.csproj" Id="584f8f72-0ca7-4dc4-b26f-8671f4be1d94" />
-    <Project Path="ProductWebAPI/ProductWebAPI.csproj" Id="533d93c6-ab68-4525-a408-a490b925e0fd" />
+    <Project Path="12ServiceDiscoveryPattern/CategoryWebAPI/CategoryWebAPI.csproj" />
+    <Project Path="12ServiceDiscoveryPattern/ProductWebAPI/ProductWebAPI.csproj" />
   </Folder>
+  <Folder Name="/CleanArchitecture/" />
   <Folder Name="/Solution Items/">
     <File Path="README.md" />
   </Folder>

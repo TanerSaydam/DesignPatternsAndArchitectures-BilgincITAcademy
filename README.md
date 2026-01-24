@@ -37,8 +37,8 @@ Kısaca, aynı problemi her seferinde sıfırdan düşünmemek için kullanılan
   - [x] **Observer Pattern - Queue - Channels Library** (Modern)
   - [x] **Rate Limiting Pattern** (Modern)
   - [x] **Circuit Breaker Pattern / Retry Pattern / Timeout Pattern / Resilience Pattern** (Polly Library) (Modern)
-- [ ] Architectural Patterns nedir?
-  - [ ] N Tier Architecture
+- [x] Architectural Patterns nedir?
+  - [x] N Tier Architecture
   - [ ] Clean Architecture
     - [ ] DDD Approach
 
